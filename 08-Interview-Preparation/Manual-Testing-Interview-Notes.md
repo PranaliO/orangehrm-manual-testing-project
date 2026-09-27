@@ -8,9 +8,9 @@
 
 ## Table of Contents
 1. [The 2-Minute Project Pitch](#1-the-2-minute-project-pitch)
-2. [Project-Specific Interview Questions (Q1 - Q21)](#2-project-specific-interview-questions-q1---q21)
-3. [Core Manual Testing Fundamentals (Q22 - Q45)](#3-core-manual-testing-fundamentals-q22---q45)
-4. [Practical Scenario-Based Interview Questions (Q46 - Q55)](#4-practical-scenario-based-interview-questions-q46---q55)
+2. [Project-Specific Interview Questions (Q1 - Q24)](#2-project-specific-interview-questions-q1---q21)
+3. [Core Manual Testing Fundamentals (Q25 - Q48)](#3-core-manual-testing-fundamentals-q22---q45)
+4. [Practical Scenario-Based Interview Questions (Q49 - Q58)](#4-practical-scenario-based-interview-questions-q46---q55)
 5. [SQL for Testers Reference Guide](#5-sql-for-testers-reference-guide)
 6. [SDLC & STLC Phases & Tester Responsibilities](#6-sdlc--stlc-phases--tester-responsibilities)
 7. [Agile / Scrum Essentials for Testers](#7-agile--scrum-essentials-for-testers)
@@ -38,7 +38,7 @@
 
 ---
 
-## 2. Project-Specific Interview Questions (Q1 - Q21)
+## 2. Project-Specific Interview Questions (Q1 - Q24)
 
 ### Q1. Can you explain your OrangeHRM project?
 **Answer:**  
@@ -153,15 +153,33 @@ The application defines Employee ID length between 1 and 10 characters. Using BV
 **Answer:**  
 "Yes, I conducted a 45-minute exploratory testing session with the charter: 'Explore input boundary limits, rapid interaction responsiveness, and data format resilience across PIM and Recruitment.' That session helped me uncover edge cases like trailing space search failures (`BUG_EMP_001`) and double file extensions in resume uploads (`BUG_REC_001`), while verifying that rapid double-clicking on Save does not create duplicate records."
 
+### Q22. How did you execute the test cases?
+**Answer:**  
+"I executed the test cases manually on the live OrangeHRM 5.x public demo instance using Google Chrome and Microsoft Edge. Before running each test, I verified the preconditions and prepared test data from `Test-Data.xlsx`. I then followed each numbered step in `Test-Cases.xlsx`, observed the actual system behavior on the browser, compared it with the Expected Result, and recorded the Actual Result. When a test failed, I verified reproducibility, captured screenshot evidence, and logged a formal defect in `Bug-Reports.xlsx`."
+
+### Q23. What challenges did you face while testing OrangeHRM?
+**Answer:**  
+"As a fresher testing on a public demo instance, I faced three main practical challenges:
+1. **Shared Public Environment:** Because the demo is public, other users or periodic server resets could modify or remove newly added test records. To handle this, I used distinct, identifiable test data prefixes (like `Pranali_Test_01`) and captured evidence immediately upon execution.
+2. **No Direct Backend Database Access:** Without direct MySQL access on the shared demo server, I could not run backend SQL queries directly. Instead, I verified data persistence through complete UI round-trips—such as searching for newly created records in the Employee List and verifying edits remained after refreshing.
+3. **Date Picker Validation Nuances:** The leave application allowed both calendar widget selection and manual keyboard text entry. Testing both input modes revealed that manual entry lacked immediate client-side past-date validation, which led to logging `BUG_LEAVE_001`."
+
+### Q24. What would you improve in the project if you had more time?
+**Answer:**  
+"If I had more time, I would:
+1. **Expand Module Coverage:** Test the Admin User Management module to verify Role-Based Access Control (RBAC)—confirming that standard Employee users cannot view or edit administrative settings.
+2. **Test Additional Browsers & Viewports:** Perform manual compatibility tests on Mozilla Firefox and test responsive layouts on mobile browser viewports.
+3. **Practice Jira Workflows:** Move the defect sheets and test cases into a live Jira instance with Xray or Zephyr to practice using industry test management tools."
+
 ---
 
-## 3. Core Manual Testing Fundamentals (Q22 - Q45)
+## 3. Core Manual Testing Fundamentals (Q25 - Q48)
 
-### Q22. What is software testing?
+### Q25. What is software testing?
 **Answer:**  
 "Software testing is the process of evaluating a software application to verify that it meets specified requirements and to identify defects, gaps, or errors, ensuring the delivery of a reliable, high-quality product to users."
 
-### Q23. Why is software testing required?
+### Q26. Why is software testing required?
 **Answer:**  
 "Testing is essential to:
 1. Ensure the software satisfies customer requirements.
@@ -169,22 +187,22 @@ The application defines Employee ID length between 1 and 10 characters. Using BV
 3. Protect data security and application integrity.
 4. Enhance user confidence and software reliability."
 
-### Q24. What is the difference between Verification and Validation?
+### Q27. What is the difference between Verification and Validation?
 **Answer:**  
 - **Verification (Static Testing):** Are we building the product right? It involves checking documents, designs, and code without executing the software (reviews, walkthroughs, inspections).
 - **Validation (Dynamic Testing):** Are we building the right product? It involves executing the actual software to verify whether it meets user requirements and expected results."
 
-### Q25. What is the difference between a Test Scenario and a Test Case?
+### Q28. What is the difference between a Test Scenario and a Test Case?
 **Answer:**  
 - **Test Scenario:** A high-level description of 'WHAT' to test (e.g., 'Verify login with valid credentials').
 - **Test Case:** A detailed, step-by-step document explaining 'HOW' to test, including Test Case ID, preconditions, test data, steps, expected result, actual result, and status."
 
-### Q26. What is the difference between Positive and Negative testing?
+### Q29. What is the difference between Positive and Negative testing?
 **Answer:**  
 - **Positive Testing:** Testing the application with valid inputs to confirm it behaves as expected along the happy path (e.g., valid username and password leads to dashboard).
 - **Negative Testing:** Testing with invalid, unexpected, or missing inputs to confirm the system properly rejects them and displays meaningful error messages without crashing (e.g., submitting empty fields triggers 'Required')."
 
-### Q27. What is the difference between Smoke Testing and Sanity Testing?
+### Q30. What is the difference between Smoke Testing and Sanity Testing?
 **Answer:**  
 | Attribute | Smoke Testing | Sanity Testing |
 | :--- | :--- | :--- |
@@ -193,29 +211,29 @@ The application defines Employee ID length between 1 and 10 characters. Using BV
 | **Subset Of** | Acceptance / Build verification testing | Regression testing |
 | **Objective** | Decide whether to accept or reject the build | Verify if the specific bug fix works |
 
-### Q28. What is the difference between Retesting and Regression Testing?
+### Q31. What is the difference between Retesting and Regression Testing?
 **Answer:**  
 - **Retesting:** Testing ONLY the specific failed test case after a bug fix to confirm the bug is resolved.
 - **Regression Testing:** Testing UNMODIFIED parts of the application to ensure the bug fix or code change did not introduce new side effects or break existing features."
 
-### Q29. What is the difference between Defect Severity and Defect Priority?
+### Q32. What is the difference between Defect Severity and Defect Priority?
 **Answer:**  
 - **Severity:** Technical impact on the application's functionality. Decided by the tester (Critical, High, Medium, Low).
 - **Priority:** Business urgency of fixing the defect based on release schedule and business value. Decided by product owners/leads (High, Medium, Low)."
 
-### Q30. What is the difference between Error, Bug, Defect, and Failure?
+### Q33. What is the difference between Error, Bug, Defect, and Failure?
 **Answer:**  
 - **Error:** A mistake made by a human (e.g., a developer writing incorrect logic or a requirement analyst misinterpreting a rule).
 - **Defect / Bug:** The flaw in the code or document resulting from the error, found during testing.
 - **Failure:** The manifestation of a defect during execution, observed by an end-user or tester when actual behavior deviates from expected behavior."
 
-### Q31. What is the Defect Lifecycle?
+### Q34. What is the Defect Lifecycle?
 **Answer:**  
 "The defect lifecycle is the sequence of states a defect goes through:  
 `New -> Assigned -> Open -> Fixed -> Retest -> Closed`.  
 If a defect still fails during retesting, its status moves from `Retest -> Reopened -> Open`."
 
-### Q32. What is the Software Testing Life Cycle (STLC)?
+### Q35. What is the Software Testing Life Cycle (STLC)?
 **Answer:**  
 "STLC consists of six structured phases:
 1. **Requirement Analysis:** Understand functional requirements and identify testable items.
@@ -225,64 +243,64 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 5. **Test Execution:** Execute test cases, record actual results, log defects.
 6. **Test Closure:** Prepare Test Summary Report, evaluate exit criteria, analyze metrics."
 
-### Q33. What is the Software Development Life Cycle (SDLC)?
+### Q36. What is the Software Development Life Cycle (SDLC)?
 **Answer:**  
 "SDLC is the framework defining tasks performed at each step in software development:
 `Requirements Gathering -> Design -> Coding/Development -> Testing -> Deployment -> Maintenance`."
 
-### Q34. What is a Requirement Traceability Matrix (RTM)?
+### Q37. What is a Requirement Traceability Matrix (RTM)?
 **Answer:**  
 "RTM is a document mapping business and functional requirements to their corresponding test scenarios, test cases, and defects. It provides bidirectional traceability (forward and backward) to ensure 100% requirement coverage and facilitate impact analysis."
 
-### Q35. What is Boundary Value Analysis (BVA)?
+### Q38. What is Boundary Value Analysis (BVA)?
 **Answer:**  
 "BVA is a black-box test design technique based on the principle that errors frequently cluster at the boundaries of input ranges. It tests values at Minimum - 1, Minimum, Minimum + 1, Maximum - 1, Maximum, and Maximum + 1."
 
-### Q36. What is Equivalence Partitioning (EP)?
+### Q39. What is Equivalence Partitioning (EP)?
 **Answer:**  
 "EP is a black-box technique that divides input data into valid and invalid partitions. Testing one representative value from each partition is assumed to produce the same result as testing any other value in that class, reducing the total number of test cases while maintaining coverage."
 
-### Q37. What is Decision Table Testing?
+### Q40. What is Decision Table Testing?
 **Answer:**  
 "Decision Table Testing is a technique used to test system behaviors that depend on combinations of inputs and business conditions. It maps conditions (True/False) against corresponding actions in a tabular matrix."
 
-### Q38. What is Error Guessing?
+### Q41. What is Error Guessing?
 **Answer:**  
 "Error Guessing is an experience-based technique where a tester anticipates where bugs are most likely to occur based on past knowledge, user behavior patterns, and common development oversights (e.g., whitespace issues, rapid button clicking, empty fields)."
 
-### Q39. What is Exploratory Testing?
+### Q42. What is Exploratory Testing?
 **Answer:**  
 "Exploratory testing is simultaneous learning, test design, and test execution. The tester uses test charters to explore the software freely without pre-written test steps, uncovering edge cases and usability defects."
 
-### Q40. What is Functional Testing?
+### Q43. What is Functional Testing?
 **Answer:**  
 "Functional testing verifies that each feature of the software operates in conformance with requirement specifications by testing user interfaces, APIs, databases, security, and client-server communications."
 
-### Q41. What is Non-Functional Testing?
+### Q44. What is Non-Functional Testing?
 **Answer:**  
 "Non-functional testing evaluates how well the system performs rather than what it does. It includes Performance, Load, Stress, Usability, Accessibility, and Security testing."
 
-### Q42. What is Test Data?
+### Q45. What is Test Data?
 **Answer:**  
 "Test data is the input information provided to an application during test execution to verify positive paths, negative paths, boundary values, and system resilience."
 
-### Q43. What is a Test Environment?
+### Q46. What is a Test Environment?
 **Answer:**  
 "A test environment is the combination of hardware, operating systems, browsers, database configurations, and network settings configured specifically to execute software tests reliably."
 
-### Q44. What is Entry Criteria?
+### Q47. What is Entry Criteria?
 **Answer:**  
 "Entry criteria are the prerequisite conditions that must be fulfilled before testing activities can officially begin (e.g., test plan approved, test environment accessible, requirements signed off)."
 
-### Q45. What is Exit Criteria?
+### Q48. What is Exit Criteria?
 **Answer:**  
 "Exit criteria are the predetermined conditions that must be met before testing can be considered complete (e.g., 100% test cases executed, 0 critical/high open defects, RTM 100% mapped, test summary report published)."
 
 ---
 
-## 4. Practical Scenario-Based Interview Questions (Q46 - Q55)
+## 4. Practical Scenario-Based Interview Questions (Q49 - Q58)
 
-### Q46. How would you test a Login Page?
+### Q49. How would you test a Login Page?
 **Answer:**  
 "I would test:
 1. **Positive:** Valid username + valid password -> Redirects to Dashboard.
@@ -291,7 +309,7 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 4. **Security & UI:** Password masked with bullets; 'Forgot your password?' link navigates properly; case-sensitivity rules; session expires on logout; browser back button after logout redirects to login.
 5. **Boundary:** Extremely long strings, special characters, leading/trailing whitespace."
 
-### Q47. How would you test an Employee Creation Form?
+### Q50. How would you test an Employee Creation Form?
 **Answer:**  
 "I would verify:
 1. **Mandatory Fields:** Save with valid First Name and Last Name; verify inline 'Required' errors when either is missing.
@@ -301,7 +319,7 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 5. **Navigation:** Cancel button discards changes without saving.
 6. **Duplicate handling:** Attempt adding an existing Employee ID to check system behavior."
 
-### Q48. How would you test a Search Box?
+### Q51. How would you test a Search Box?
 **Answer:**  
 "I would test:
 1. Search with exact valid keyword (returns matching record).
@@ -311,7 +329,7 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 5. Search with blank input or clicking Reset (restores full record list).
 6. Search with special characters (`#@$%^&*`) and SQL injection strings (`' OR 1=1 --`) to verify sanitation."
 
-### Q49. How would you test a Leave Application Form?
+### Q52. How would you test a Leave Application Form?
 **Answer:**  
 "I would test:
 1. **Valid Leave:** Select leave type, upcoming valid dates, optional comments -> Submits successfully with status 'Pending Approval'.
@@ -320,7 +338,7 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 4. **Past Dates:** Entering past historical dates -> System warning or validation.
 5. **Comments:** Testing boundary limit (e.g., 250 characters vs 251 characters)."
 
-### Q50. How would you test a Recruitment Candidate Form?
+### Q53. How would you test a Recruitment Candidate Form?
 **Answer:**  
 "I would test:
 1. **Mandatory Checks:** First Name, Last Name, Email are required.
@@ -328,14 +346,14 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 3. **File Upload:** Upload valid `.pdf` or `.docx` < 1MB; upload invalid extensions (`.exe`, `.bat`); upload oversized file (>1MB).
 4. **Candidate Workflow:** Progressing candidate status from 'Application Initiated' to 'Shortlisted' or 'Rejected'."
 
-### Q51. What would you do if a developer rejects your defect, saying 'Not a Bug'?
+### Q54. What would you do if a developer rejects your defect, saying 'Not a Bug'?
 **Answer:**  
 "1. I will remain calm and professional.  
 2. I will re-read the Functional Requirement Specification (FRS) or acceptance criteria to verify if the behavior violates documented specifications.  
 3. If documented, I will politely point out the requirement reference, attach the exact reproduction steps and screenshot evidence.  
 4. If the requirement is ambiguous, I will discuss it with the developer and, if needed, consult the Product Owner / Test Lead to clarify the expected user experience."
 
-### Q52. What if requirements are unclear or incomplete?
+### Q55. What if requirements are unclear or incomplete?
 **Answer:**  
 "I would:
 1. Avoid making arbitrary assumptions.
@@ -344,7 +362,7 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 4. Refer to standard domain workflows or comparable features for reference.
 5. Update test documentation once clarifications are approved."
 
-### Q53. What if you have very little time for testing before a release?
+### Q56. What if you have very little time for testing before a release?
 **Answer:**  
 "I would apply **Risk-Based Testing**:
 1. Focus on the **Smoke Testing Suite** to ensure core stability.
@@ -353,7 +371,7 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 4. Defer low-priority, cosmetic, and obscure boundary tests.
 5. Communicate risks and test coverage limitations transparently to the lead."
 
-### Q54. How do you prioritize test cases?
+### Q57. How do you prioritize test cases?
 **Answer:**  
 "I prioritize based on:
 1. **Business Impact:** Features that handle core operations (Login, creating employees, submitting leave).
@@ -361,7 +379,7 @@ If a defect still fails during retesting, its status moves from `Retest -> Reope
 3. **Complexity & Risk:** Areas with complex logic or recent code modifications.
 4. **Dependencies:** Gatekeeper features upon which other modules rely."
 
-### Q55. What would you do if a defect cannot be reproduced?
+### Q58. What would you do if a defect cannot be reproduced?
 **Answer:**  
 "1. Carefully re-check the exact test environment (browser version, OS, screen resolution).  
 2. Check if specific test data or user permissions were used during the initial failure.  

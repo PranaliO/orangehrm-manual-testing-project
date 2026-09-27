@@ -53,14 +53,14 @@ pie title Defect Breakdown by Severity
     "Low Severity" : 4
 ```
 
-| Defect ID | Module | Title | Severity | Priority | Status |
-| :--- | :--- | :--- | :---: | :---: | :---: |
-| `BUG_EMP_001` | PIM | Trailing whitespace in Employee Name search causes false "No Records Found" | Medium | Medium | Open |
-| `BUG_LEAVE_001` | Leave | Date picker allows manual entry of past dates without immediate warning | Medium | Medium | Open |
-| `BUG_REC_001` | Recruitment | Resume upload accepts double extensions (`file.pdf.doc`) without MIME check | Low | Low | Open |
-| `BUG_LOGIN_001` | Login | Leading whitespace in pasted password fails without helper guidance | Low | Low | Closed (Retested) |
-| `BUG_EMP_002` | PIM | Employee ID leading zeros stripped in data grid causing search mismatch | Low | Low | Open |
-| `BUG_REC_002` | Recruitment | Resetting candidate search leaves results counter label lagging | Low | Low | Open |
+| Defect ID | Classification | Module | Title | Severity | Priority | Status |
+| :--- | :--- | :--- | :--- | :---: | :---: | :---: |
+| `BUG_EMP_001` | Confirmed Defect | PIM | Trailing whitespace in Employee Name search causes false "No Records Found" | Medium | Medium | Open |
+| `BUG_LEAVE_001` | Confirmed Defect | Leave | Date picker allows manual entry of past dates without immediate warning | Medium | Medium | Open |
+| `BUG_REC_001` | Exploratory Finding | Recruitment | Resume upload accepts double extensions (`sample.pdf.doc`) without MIME check | Low | Low | Open |
+| `BUG_LOGIN_001` | Simulated Defect | Login | Leading whitespace in pasted password fails without helper guidance | Low | Low | Closed (Retested) |
+| `BUG_EMP_002` | Exploratory Finding | PIM | Employee ID leading zeros stripped in data grid causing search mismatch | Low | Low | Open |
+| `BUG_REC_002` | Exploratory Finding | Recruitment | Resetting candidate search leaves results counter label lagging | Low | Low | Open |
 
 ---
 

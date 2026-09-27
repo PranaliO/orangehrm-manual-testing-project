@@ -10,10 +10,11 @@
 Defect management is a critical stage in the Software Testing Life Cycle (STLC). Identifying, isolating, documenting, and tracking defects to closure ensures that software discrepancies are clearly communicated to development teams for timely resolution.
 
 This document details:
-1. Standard Defect Report Template
-2. Defect Lifecycle Process
-3. Severity vs. Priority Classification with Real Project Examples
-4. Complete Log of 6 Discovered & Simulated Defects
+1. Standard Defect Report Template & Attributes
+2. Defect Authenticity Classification (Confirmed, Exploratory, Simulated)
+3. Defect Lifecycle Process
+4. Severity vs. Priority Classification with Real Project Examples
+5. Complete Log of 6 Discovered & Simulated Defects
 
 ---
 
@@ -24,10 +25,12 @@ Every defect logged in this project contains the following standardized attribut
 | Field Name | Description |
 | :--- | :--- |
 | **Defect ID** | Unique alphanumeric identifier (e.g., `BUG_EMP_001`). |
+| **Classification** | Nature of the defect (`Confirmed Defect`, `Potential Defect / Exploratory Finding`, or `Simulated Defect`). |
 | **Defect Title** | Concise, descriptive summary stating the exact problem and location. |
 | **Module** | Specific application module (Login, PIM, Leave, Recruitment). |
 | **Environment** | OS, browser version, and application build under test. |
 | **Preconditions** | System state required prior to executing reproduction steps. |
+| **Test Data** | Exact input strings, dates, or file payloads used during reproduction. |
 | **Steps to Reproduce** | Numbered, step-by-step instructions enabling any tester or developer to replicate the bug. |
 | **Expected Result** | Correct behavior according to functional specifications. |
 | **Actual Result** | Observed erroneous behavior or system output. |
@@ -36,12 +39,25 @@ Every defect logged in this project contains the following standardized attribut
 | **Reproducibility** | Frequency of occurrence (Always 100%, Intermittent, Once). |
 | **Status** | Current state in the defect lifecycle (New, Open, Fixed, Retest, Closed, Reopened). |
 | **Test Case ID** | ID of the specific test case during whose execution the defect was found. |
-| **Evidence Reference** | Name of the screenshot or video recording demonstrating the issue. |
+| **Evidence Reference** | Name of the screenshot or file reference demonstrating the issue. |
 | **Comments** | Additional diagnostic information or technical observations. |
 
 ---
 
-## 3. Defect Severity vs. Defect Priority
+## 3. Defect Authenticity Classification
+
+To maintain 100% honesty and credibility for a fresher portfolio, all 6 defects are classified into three transparent categories:
+
+1. **Confirmed Defect (2 Defects):**  
+   Issues that were directly reproduced on the public OrangeHRM 5.x demo instance (`BUG_EMP_001` and `BUG_LEAVE_001`).
+2. **Potential Defect / Exploratory Finding (3 Defects):**  
+   Subtle edge-case observations, input sanitation gaps, or UI reactivity delays discovered during exploratory charters (`BUG_REC_001`, `BUG_EMP_002`, and `BUG_REC_002`).
+3. **Simulated Defect for Lifecycle Demonstration (1 Defect):**  
+   A controlled scenario (`BUG_LOGIN_001`) used specifically to demonstrate how a tester conducts Retesting, verifies a developer fix, and transitions a defect from `New -> Open -> Fixed -> Retest -> Closed`.
+
+---
+
+## 4. Defect Severity vs. Defect Priority
 
 Understanding the difference between **Severity** and **Priority** is a vital competency for a QA tester:
 
@@ -59,7 +75,7 @@ Understanding the difference between **Severity** and **Priority** is a vital co
 
 ---
 
-## 4. Defect Lifecycle
+## 5. Defect Lifecycle
 
 The following state machine governs how defects transition from discovery to closure:
 
@@ -87,22 +103,19 @@ stateDiagram-v2
 
 ---
 
-## 5. Comprehensive Defect Log (6 Defects)
-
-> [!NOTE]  
-> All defects documented below are based on actual exploratory observations of OrangeHRM 5.x behavior or simulated defects grounded in real web testing edge cases.
+## 6. Comprehensive Defect Log (6 Defects)
 
 ---
 
 ### Defect 1: BUG_EMP_001
+- **Classification:** `Confirmed Defect`
 - **Title:** Employee search by Employee Name fails when trailing whitespace is present in search input
 - **Module:** Employee Management (PIM)
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo
-- **Severity:** Medium
-- **Priority:** Medium
-- **Status:** Open
+- **Severity:** Medium | **Priority:** Medium | **Status:** Open
 - **Associated Test Case:** `TC_EMP_009`
 - **Preconditions:** Active employee "Pranali Test" exists in PIM Employee List.
+- **Test Data:** `Employee Name: "Pranali " (with trailing whitespace)`
 - **Steps to Reproduce:**
   1. Navigate to `PIM` > `Employee List`.
   2. In the `Employee Name` search input field, type `"Pranali "` (including a space character at the end).
@@ -115,14 +128,14 @@ stateDiagram-v2
 ---
 
 ### Defect 2: BUG_LEAVE_001
-- **Title:** Leave Date picker allows manual typing of past dates without immediate validation warning
+- **Classification:** `Confirmed Defect`
+- **Title:** Leave Date picker allows manual entry of past dates without immediate validation warning
 - **Module:** Leave Management
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo
-- **Severity:** Medium
-- **Priority:** Medium
-- **Status:** Open
+- **Severity:** Medium | **Priority:** Medium | **Status:** Open
 - **Associated Test Case:** `TC_LEAVE_002`
-- **Preconditions:** User is logged in and on Leave > Apply page.
+- **Preconditions:** User is logged in and on Leave > Apply page with allocated balance.
+- **Test Data:** `Leave Type: "US - Vacation", From Date: "2023-01-01", To Date: "2023-01-02"`
 - **Steps to Reproduce:**
   1. Select a valid Leave Type (e.g., "US - Vacation").
   2. In the `From Date` field, manually type past date `"2023-01-01"`.
@@ -136,14 +149,14 @@ stateDiagram-v2
 ---
 
 ### Defect 3: BUG_REC_001
-- **Title:** Resume file upload allows double extension files (e.g., `resume.pdf.doc`) without explicit extension check
+- **Classification:** `Potential Defect / Exploratory Finding`
+- **Title:** Resume file upload allows double extension files (e.g., `resume.pdf.doc`) without explicit MIME-type verification
 - **Module:** Recruitment
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo
-- **Severity:** Low
-- **Priority:** Low
-- **Status:** Open
+- **Severity:** Low | **Priority:** Low | **Status:** Open
 - **Associated Test Case:** `TC_REC_008`
 - **Preconditions:** User is on Recruitment > Add Candidate page.
+- **Test Data:** `File Name: "sample_resume.pdf.doc" (Size: 250 KB)`
 - **Steps to Reproduce:**
   1. Enter valid First Name, Last Name, and Email.
   2. In the Resume upload file picker, select a file named `"sample_resume.pdf.doc"`.
@@ -151,19 +164,19 @@ stateDiagram-v2
 - **Expected Result:** System should validate that file extensions are singular and verify file MIME type prior to acceptance.
 - **Actual Result:** System accepts the file because it only inspects the terminal extension (`.doc`), bypassing multi-extension safety checks.
 - **Evidence Reference:** `BUG_REC_001_double_extension.png`
-- **Comments:** Minor security sanitation oversight.
+- **Comments:** Minor security sanitation oversight identified during exploratory testing.
 
 ---
 
-### Defect 4: BUG_LOGIN_001 [SIMULATED DEFECT / RETESTED]
+### Defect 4: BUG_LOGIN_001
+- **Classification:** `Simulated Defect (Lifecycle Demo)`
 - **Title:** Password input allows pasting plain text containing leading spaces without input sanitation warning
 - **Module:** Login
 - **Environment:** Windows 11 / Microsoft Edge v128 / OrangeHRM 5.x Public Demo
-- **Severity:** Low
-- **Priority:** Low
-- **Status:** Closed (Simulated Fix & Retest)
+- **Severity:** Low | **Priority:** Low | **Status:** Closed (Simulated Fix & Retest)
 - **Associated Test Case:** `TC_LOGIN_002`
 - **Preconditions:** User is on the login page.
+- **Test Data:** `Username: "Admin", Password: " admin123" (with leading space)`
 - **Steps to Reproduce:**
   1. Copy `" admin123"` (with a leading space) to clipboard.
   2. Paste into the Password field.
@@ -176,14 +189,14 @@ stateDiagram-v2
 ---
 
 ### Defect 5: BUG_EMP_002
+- **Classification:** `Potential Defect / Exploratory Finding`
 - **Title:** Employee ID leading zeros stripped in table view causing visual discrepancy with search input
 - **Module:** Employee Management (PIM)
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo
-- **Severity:** Low
-- **Priority:** Low
-- **Status:** Open
+- **Severity:** Low | **Priority:** Low | **Status:** Open
 - **Associated Test Case:** `TC_EMP_007`
 - **Preconditions:** Add employee with ID `"0089"`.
+- **Test Data:** `Employee ID: "0089", Names: "Test", "LeadingZero"`
 - **Steps to Reproduce:**
   1. Navigate to `PIM` > `Add Employee`.
   2. Enter names and specify custom Employee ID as `"0089"`.
@@ -197,19 +210,19 @@ stateDiagram-v2
 ---
 
 ### Defect 6: BUG_REC_002
+- **Classification:** `Potential Defect / Exploratory Finding`
 - **Title:** Candidate search by Vacancy does not reset results count text until full page reload
 - **Module:** Recruitment
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo
-- **Severity:** Low
-- **Priority:** Low
-- **Status:** Open
+- **Severity:** Low | **Priority:** Low | **Status:** Open
 - **Associated Test Case:** `TC_REC_011`
 - **Preconditions:** User has applied a search filter in Recruitment > Candidates.
+- **Test Data:** `Job Vacancy dropdown: "QA Lead", Filter Action: Click Search then Reset`
 - **Steps to Reproduce:**
   1. Search candidates by vacancy that yields 2 records.
   2. Click the `Reset` button on the search card.
   3. Observe the `(2) Records Found` text counter above the table.
-- **Expected Result:** Counter text should dynamically update to show total unfiltered candidate count upon clicking Reset.
+- **Expected Result:** Counter text should dynamically update to reflect total unfiltered candidate count upon clicking Reset.
 - **Actual Result:** Grid refreshes to display all candidates, but the `(2) Records Found` label intermittently retains old count until page reload.
 - **Evidence Reference:** `BUG_REC_002_counter_lag.png`
 - **Comments:** Minor UI reactivity lag in Vue.js frontend state.
