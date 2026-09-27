@@ -1,25 +1,25 @@
 # OrangeHRM – Manual Testing Project
 
 [![Testing Approach](https://img.shields.io/badge/Testing%20Approach-Manual%20Testing%20Only-blue.svg)](#)
-[![STLC](https://img.shields.io/badge/STLC-Complete%20Lifecycle-success.svg)](#)
-[![Test Cases](https://img.shields.io/badge/Test%20Cases-56%20Cases-orange.svg)](#)
+[![STLC](https://img.shields.io/badge/STLC-Design%20%26%20Documentation-success.svg)](#)
+[![Test Cases](https://img.shields.io/badge/Test%20Cases-56%20Designed-orange.svg)](#)
 [![RTM Coverage](https://img.shields.io/badge/RTM-100%25%20Coverage-brightgreen.svg)](#)
 
-A comprehensive, realistic, interview-ready **Manual Software Testing** portfolio project based on the open-source web application **OrangeHRM (Version 5.x)**.
+A practical, professional, and interview-defensible **Manual Software Testing** portfolio project based on the open-source web application **OrangeHRM (Version 5.x)**.
 
-Created as a practical demonstration of Software Testing fundamentals for a **2026 B.Tech Computer Science graduate**, this project reflects the complete **Software Testing Life Cycle (STLC)**—from requirement analysis and test design techniques to test execution planning, defect reporting, regression suites, and Requirement Traceability Matrix (RTM) maintenance.
+Created as a demonstration of software testing fundamentals for an **entry-level Manual Testing / QA Tester fresher (2026 B.Tech Computer Science graduate)**, this project demonstrates key stages of the **Software Testing Life Cycle (STLC)**, including requirement analysis, test scenario formulation, test case design using black-box techniques, test data preparation, test execution planning, defect management, regression planning, and Requirement Traceability Matrix (RTM) maintenance.
 
 > [!IMPORTANT]  
 > **Testing Approach: MANUAL TESTING ONLY**  
-> This project is designed, documented, and executed **strictly using Manual Testing methodologies**. No automated test tools, scripts, or CI/CD frameworks (such as Selenium, Playwright, Cypress, TestNG, Cucumber, or Appium) are used. The project demonstrates core Manual Testing skills and test design thinking.
+> This project is designed and documented **strictly using Manual Testing methodologies**. No automated test tools, scripts, or CI/CD frameworks such as Selenium, Playwright, Cypress, TestNG, Cucumber, or Appium are used. The project focuses purely on core manual testing competencies, requirement analysis, and test design thinking.
 
 ---
 
 ## 1. Project Objectives
-- Verify that core human resource workflows (employee onboarding, leave applications, recruitment candidate tracking) function as expected.
+- Verify that core human resource workflows (employee management, leave applications, recruitment candidate tracking) operate according to documented specifications.
 - Validate authentication security, session management, password masking, and error handling.
 - Ensure data integrity by validating mandatory fields, boundary value conditions, and format constraints.
-- Document and track software defects with clear reproduction steps, test data, expected vs. actual outcomes, severity, and priority.
+- Document software defects with clear reproduction steps, test data, expected vs. actual outcomes, severity, and priority.
 - Maintain complete bidirectional requirement traceability (Requirements ↔ Scenarios ↔ Test Cases ↔ Defects).
 - Design structured Smoke, Sanity, and Regression execution cycles to ensure build quality without test duplication.
 
@@ -69,7 +69,7 @@ flowchart LR
 - Sanity Testing (Targeted defect-fix verification)
 - Regression Testing (14 core regression test cases)
 - Retesting Workflow (Verifying defect fixes)
-- Exploratory Testing (45-minute structured charter)
+- Exploratory Testing (45-minute structured charter documented in [Execution-Summary.md](04-Test-Execution/Execution-Summary.md))
 - Cross-Browser UI Compatibility (Google Chrome & Microsoft Edge)
 
 ### Out-of-Scope:
@@ -95,7 +95,7 @@ Formal black-box test design techniques were applied to ensure comprehensive cov
 
 ## 6. Test Suite Statistics
 
-All numbers below are confirmed and supported directly by the project files:
+All numbers below are confirmed and supported directly by the repository files:
 
 | Metric | Confirmed Count | Supporting Deliverable |
 | :--- | :---: | :--- |
@@ -105,9 +105,10 @@ All numbers below are confirmed and supported directly by the project files:
 | **Structured Test Data Records** | **31** | [Test-Data.xlsx](03-Test-Design/Test-Data.xlsx) / [Test-Data.md](03-Test-Design/Test-Data.md) |
 | **Smoke Test Cases** | **10** | [Execution-Summary.md](04-Test-Execution/Execution-Summary.md) |
 | **Regression Test Cases** | **14** | [Execution-Summary.md](04-Test-Execution/Execution-Summary.md) |
-| **Defects Documented** | **6** | [Bug-Reports.xlsx](05-Defect-Management/Bug-Reports.xlsx) / [Bug-Reports.md](05-Defect-Management/Bug-Reports.md) |
+| **Defect/Issue Records** | **6** | [Bug-Reports.xlsx](05-Defect-Management/Bug-Reports.xlsx) / [Bug-Reports.md](05-Defect-Management/Bug-Reports.md) |
+| **Confirmed Defects** | **2** | `BUG_EMP_001`, `BUG_LEAVE_001` |
 | **RTM Coverage** | **100%** | [Requirement-Traceability-Matrix.xlsx](06-RTM/Requirement-Traceability-Matrix.xlsx) / [RTM.md](06-RTM/Requirement-Traceability-Matrix.md) |
-| **Execution Status** | *Not Executed* | Maintained as baseline for candidate live execution |
+| **Execution Status** | *Not Executed* | Designed and documented; ready for manual execution |
 
 ### Module Breakdown:
 - **Login & Session Management:** 5 Requirements | 7 Scenarios | 12 Test Cases
@@ -120,17 +121,17 @@ All numbers below are confirmed and supported directly by the project files:
 
 ## 7. Defect Management & Classification
 
-Every defect contains: Defect ID, Classification, Title, Module, Environment, Preconditions, Test Data, Steps to Reproduce, Expected Result, Actual Result, Severity, Priority, Reproducibility, Status, Related Test Case ID, Evidence Reference, and Comments.
+Every defect record contains: Defect ID, Classification, Title, Module, Environment, Preconditions, Test Data, Steps to Reproduce, Expected Result, Actual Result, Severity, Priority, Reproducibility, Status, Related Test Case ID, Evidence Reference, and Comments.
 
-### Defect Classification & Authenticity:
-To maintain complete authenticity for a fresher portfolio, defects are transparently classified:
-1. **Confirmed Defects (2):** Directly reproduced on the live OrangeHRM 5.x demo instance (`BUG_EMP_001`, `BUG_LEAVE_001`).
-2. **Potential Defects / Exploratory Findings (3):** Gaps in input sanitation or frontend UI counter synchronization (`BUG_REC_001`, `BUG_EMP_002`, `BUG_REC_002`).
-3. **Simulated Defect for Lifecycle Demo (1):** Controlled defect (`BUG_LOGIN_001`) used to demonstrate the retesting workflow from `New -> Open -> Fixed -> Retest -> Closed`.
+### Defect / Issue Records Breakdown:
+- **Total Defect/Issue Records:** 6
+  - **Confirmed Defects:** 2 (directly reproduced on the live OrangeHRM 5.x demo instance)
+  - **Exploratory Findings:** 3 (observations regarding input sanitation, data grid display, and UI counter reactivity)
+  - **Simulated Defect for Lifecycle Demonstration:** 1 (used to demonstrate the retesting workflow from `New -> Open -> Fixed -> Retest -> Closed`)
 
-### Summary of Documented Defects:
+### Summary of Documented Records:
 
-| Defect ID | Classification | Module | Defect Summary | Severity | Priority | Status |
+| Defect ID | Classification | Module | Summary | Severity | Priority | Status |
 | :--- | :--- | :--- | :--- | :---: | :---: | :---: |
 | `BUG_EMP_001` | Confirmed Defect | PIM | Trailing whitespace in Employee Name search returns false "No Records Found" | Medium | Medium | Open |
 | `BUG_LEAVE_001` | Confirmed Defect | Leave | Date picker allows manual entry of past dates without immediate warning | Medium | Medium | Open |
@@ -151,7 +152,7 @@ orangehrm-manual-testing-project/
 ├── README.md                                       <-- Portfolio Overview & Homepage
 │
 ├── 01-Project-Documentation/
-│   ├── Test-Plan.md                                <-- IEEE-829 Aligned Test Plan (Concise 3-5 pages)
+│   ├── Test-Plan.md                                <-- Structured Manual Testing Test Plan
 │   ├── Scope-and-Objectives.md                     <-- Testing Scope Boundaries & Goals
 │   └── Test-Environment.md                         <-- Hardware, Browsers & Environment Details
 │
@@ -180,18 +181,15 @@ orangehrm-manual-testing-project/
 │   ├── Requirement-Traceability-Matrix.xlsx        <-- Bidirectional RTM (Excel)
 │   └── Requirement-Traceability-Matrix.md          <-- RTM Table Formatted in Markdown
 │
-├── 07-Test-Summary/
-│   └── Test-Summary-Report.md                      <-- Final Evaluation, Metrics & Risk Table
-│
-└── 08-Interview-Preparation/
-    └── Manual-Testing-Interview-Notes.md           <-- 58 Q&As, 2-Min Pitch, SQL, SDLC/STLC & Agile
+└── 07-Test-Summary/
+    └── Test-Summary-Report.md                      <-- Final Evaluation, Metrics & Risk Table
 ```
 
 ---
 
 ## 9. Tools Used
 - **Application Under Test:** OrangeHRM Open Source (Version 5.x Public Demo)
-- **Browsers:** Google Chrome v128+ (Primary), Microsoft Edge v128+ (Secondary)
+- **Browsers:** Google Chrome, Microsoft Edge
 - **Documentation:** Microsoft Excel (.xlsx), Markdown (.md)
 - **Version Control & Hosting:** Git & GitHub ([https://github.com/PranaliO](https://github.com/PranaliO))
 - **Diagrams:** Mermaid.js
@@ -226,18 +224,18 @@ You can directly add these bullet points to your resume under **Projects**:
 
 ### OrangeHRM – Manual Testing Portfolio Project
 - Performed manual functional, UI, positive, and negative testing across 4 core OrangeHRM modules (Login, PIM, Leave, Recruitment) based on 22 functional specifications.
-- Designed and documented 56 detailed manual test cases and 32 scenarios using black-box techniques (**Boundary Value Analysis**, **Equivalence Partitioning**, **Decision Tables**, and **Error Guessing**), maintaining **100% bidirectional traceability** using an RTM.
-- Created dedicated **Smoke (10 cases)** and **Regression (14 cases)** suites, executed exploratory testing charters, and documented **6 defects** with reproduction steps, test data, severity/priority ratings, and retesting lifecycles.
+- Designed 56 manual test cases and 32 scenarios using black-box techniques (**Boundary Value Analysis**, **Equivalence Partitioning**, **Decision Tables**, and **Error Guessing**), maintaining **100% bidirectional traceability** using an RTM.
+- Created dedicated **Smoke (10 cases)** and **Regression (14 cases)** suites, executed exploratory testing charters, and created structured defect reports with reproduction steps, test data, severity/priority ratings, and retesting lifecycles.
 
 ---
 
-## 12. Interview Talking Points (Quick Summary)
+## 12. Project Interview Talking Points
 
 - **Why OrangeHRM?** Chosen because it is a realistic enterprise HR application with real workflows (employee lifecycle, leave calculations, candidate pipelines), allowing demonstration of real-world form validations and session behaviors.
 - **Test Design Rigor:** Test cases were not created by random guessing; they were derived using BVA on Employee ID and Comment boundaries, EP on email formats and login credentials, and Decision Tables on leave submission logic.
 - **Traceability:** 100% of requirements map forward to scenarios and test cases, and backward from test cases to requirements and defects.
-- **Defect Management:** Defects are distinguished by technical impact (Severity) versus business urgency (Priority), with clear reproduction steps and test data.
-- **Practical Challenges Handled:** Tested on a public shared demo instance with no backend database access, using UI round-trips for persistence verification and distinct test prefixes to isolate test data.
+- **Defect Management:** Defects are distinguished by technical impact (Severity) versus business urgency (Priority), with clear reproduction steps, exact test data, and classification into confirmed defects, exploratory findings, and lifecycle demonstrations.
+- **Practical Challenges Handled:** Tested on a public shared demo instance without direct backend database access, using UI round-trips for persistence verification and distinct test prefixes to isolate test data.
 
 ---
 

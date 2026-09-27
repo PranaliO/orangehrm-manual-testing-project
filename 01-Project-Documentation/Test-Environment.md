@@ -32,8 +32,8 @@ The test environment represents the hardware, operating system, browser configur
 
 | Browser Name | Engine | Tested Version | Role / Scope |
 | :--- | :--- | :--- | :--- |
-| **Google Chrome** | Chromium / Blink | Latest Stable (v128.0+) | **Primary Browser:** Complete test execution of all 56 test cases. |
-| **Microsoft Edge** | Chromium / Blink | Latest Stable (v128.0+) | **Secondary Browser:** Smoke suite & cross-browser UI compatibility checks. |
+| **Google Chrome** | Chromium / Blink | Latest Stable Version | **Primary Browser:** Target browser for manual test verification. |
+| **Microsoft Edge** | Chromium / Blink | Latest Stable Version | **Secondary Browser:** Smoke suite & cross-browser UI compatibility checks. |
 
 *Browser Configuration Rules:*
 - Browser zoom level fixed at 100%.

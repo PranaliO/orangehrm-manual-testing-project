@@ -11,10 +11,10 @@
 ## 1. Introduction
 This Test Plan describes the manual testing strategy, scope, resources, environment, and deliverables for verifying key functionalities of the **OrangeHRM** web application (Open-Source version 5.x). 
 
-This project is a personal Manual Testing portfolio initiative designed to apply practical Software Testing Life Cycle (STLC) concepts—including requirement analysis, test design techniques (BVA, Equivalence Partitioning, Decision Tables), test execution, defect reporting, regression testing, and Requirement Traceability Matrix (RTM) maintenance.
+This project is a personal Manual Testing portfolio initiative designed to demonstrate practical Software Testing Life Cycle (STLC) stages—including requirement analysis, test design techniques (BVA, Equivalence Partitioning, Decision Tables), test execution planning, defect reporting, regression planning, and Requirement Traceability Matrix (RTM) maintenance.
 
 > **Note on Testing Approach:**  
-> This project is executed **strictly using Manual Testing**. No automation tools, automated scripts, or CI/CD pipelines are utilized.
+> This project is designed and documented **strictly using Manual Testing methodologies**. No automated test tools, scripts, or CI/CD frameworks such as Selenium, Playwright, Cypress, TestNG, Cucumber, or Appium are utilized.
 
 ---
 
@@ -111,8 +111,8 @@ Testing is conducted strictly manually through black-box testing methodologies:
 | Component | Specification |
 | :--- | :--- |
 | **Operating System** | Microsoft Windows 11 (64-bit) |
-| **Primary Browser** | Google Chrome (Latest Stable Version, Version 128+) |
-| **Secondary Browser** | Microsoft Edge (Chromium-based, Latest Stable) |
+| **Primary Browser** | Google Chrome |
+| **Secondary Browser** | Microsoft Edge |
 | **Screen Resolution** | 1920 x 1080 (Full HD, 100% display scaling) |
 | **Network** | Broadband Internet (50+ Mbps stable connection) |
 | **Test Documentation Tools** | Microsoft Excel / Markdown editors / Git & GitHub |
@@ -190,5 +190,4 @@ Testing concludes when:
 | **Defect Summary** | `05-Defect-Management/Defect-Summary.md` | Defect analysis, lifecycle, and severity/priority. |
 | **Requirement Traceability Matrix**| `06-RTM/Requirement-Traceability-Matrix.xlsx` | Bidirectional requirement-to-test mapping. |
 | **Test Summary Report** | `07-Test-Summary/Test-Summary-Report.md` | Final evaluation and test metrics report. |
-| **Interview Preparation Notes** | `08-Interview-Preparation/Manual-Testing-Interview-Notes.md` | 55 Q&As, 2-min pitch, SQL, STLC & Agile notes. |
 | **Project README** | `README.md` | GitHub portfolio homepage. |

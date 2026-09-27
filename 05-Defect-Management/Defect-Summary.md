@@ -25,7 +25,7 @@ Every defect logged in this project contains the following standardized attribut
 | Field Name | Description |
 | :--- | :--- |
 | **Defect ID** | Unique alphanumeric identifier (e.g., `BUG_EMP_001`). |
-| **Classification** | Nature of the defect (`Confirmed Defect`, `Potential Defect / Exploratory Finding`, or `Simulated Defect`). |
+| **Classification** | Nature of the defect (`Confirmed Defect`, `Exploratory Finding`, or `Simulated Defect`). |
 | **Defect Title** | Concise, descriptive summary stating the exact problem and location. |
 | **Module** | Specific application module (Login, PIM, Leave, Recruitment). |
 | **Environment** | OS, browser version, and application build under test. |
@@ -50,8 +50,8 @@ To maintain 100% honesty and credibility for a fresher portfolio, all 6 defects 
 
 1. **Confirmed Defect (2 Defects):**  
    Issues that were directly reproduced on the public OrangeHRM 5.x demo instance (`BUG_EMP_001` and `BUG_LEAVE_001`).
-2. **Potential Defect / Exploratory Finding (3 Defects):**  
-   Subtle edge-case observations, input sanitation gaps, or UI reactivity delays discovered during exploratory charters (`BUG_REC_001`, `BUG_EMP_002`, and `BUG_REC_002`).
+2. **Exploratory Findings (3 Records):**  
+   Subtle edge-case observations, input sanitation gaps, or UI reactivity delays discovered during exploratory testing (`BUG_REC_001`, `BUG_EMP_002`, and `BUG_REC_002`).
 3. **Simulated Defect for Lifecycle Demonstration (1 Defect):**  
    A controlled scenario (`BUG_LOGIN_001`) used specifically to demonstrate how a tester conducts Retesting, verifies a developer fix, and transitions a defect from `New -> Open -> Fixed -> Retest -> Closed`.
 
@@ -149,7 +149,7 @@ stateDiagram-v2
 ---
 
 ### Defect 3: BUG_REC_001
-- **Classification:** `Potential Defect / Exploratory Finding`
+- **Classification:** `Exploratory Finding`
 - **Title:** Resume file upload allows double extension files (e.g., `resume.pdf.doc`) without explicit MIME-type verification
 - **Module:** Recruitment
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo
@@ -169,7 +169,7 @@ stateDiagram-v2
 ---
 
 ### Defect 4: BUG_LOGIN_001
-- **Classification:** `Simulated Defect (Lifecycle Demo)`
+- **Classification:** `Simulated Defect`
 - **Title:** Password input allows pasting plain text containing leading spaces without input sanitation warning
 - **Module:** Login
 - **Environment:** Windows 11 / Microsoft Edge v128 / OrangeHRM 5.x Public Demo
@@ -189,7 +189,7 @@ stateDiagram-v2
 ---
 
 ### Defect 5: BUG_EMP_002
-- **Classification:** `Potential Defect / Exploratory Finding`
+- **Classification:** `Exploratory Finding`
 - **Title:** Employee ID leading zeros stripped in table view causing visual discrepancy with search input
 - **Module:** Employee Management (PIM)
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo
@@ -210,7 +210,7 @@ stateDiagram-v2
 ---
 
 ### Defect 6: BUG_REC_002
-- **Classification:** `Potential Defect / Exploratory Finding`
+- **Classification:** `Exploratory Finding`
 - **Title:** Candidate search by Vacancy does not reset results count text until full page reload
 - **Module:** Recruitment
 - **Environment:** Windows 11 / Google Chrome v128 / OrangeHRM 5.x Public Demo

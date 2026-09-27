@@ -125,15 +125,15 @@ Whenever code changes occur (such as bug fixes or updates), regression testing v
 - **Tester:** Pranali (QA Engineer Fresher)
 - **Charter:** Explore input boundary limits, rapid interaction responsiveness, and data format resilience across PIM and Recruitment modules.
 - **Time Box:** 45 minutes
-- **Environment:** Windows 11 / Chrome v128 / OrangeHRM 5.x Public Demo
+- **Environment:** Windows 11 / Google Chrome / OrangeHRM 5.x Public Demo
 
 ### Session Log & Findings:
 
 | Area Explored | Action & Exploration | Observation | Finding / Defect Reference |
 | :--- | :--- | :--- | :--- |
-| **PIM Search Field** | Typed employee name followed by space character (`"Pranali "`) and clicked search. | Search requires exact match without space; fails to auto-trim. | Logged as `BUG_EMP_001`. |
-| **Recruitment Resume** | Uploaded file with two extensions (`sample_resume.pdf.doc`). | Upload dialog accepted file without inspecting actual file headers. | Logged as `BUG_REC_001`. |
-| **Leave Date Picker** | Typed past year date (`2023-01-01`) manually into date input box. | Form allowed entry without immediate red boundary indicator. | Logged as `BUG_LEAVE_001`. |
+| **PIM Search Field** | Typed employee name followed by space character (`"Pranali "`) and clicked search. | Search requires exact match without space; fails to auto-trim. | Logged as `BUG_EMP_001` (Confirmed Defect). |
+| **Recruitment Resume** | Uploaded file with two extensions (`sample_resume.pdf.doc`). | Upload dialog accepted file without inspecting actual file headers. | Logged as `BUG_REC_001` (Exploratory Finding). |
+| **Leave Date Picker** | Typed past year date (`2023-01-01`) manually into date input box. | Form allowed entry without immediate red boundary indicator. | Logged as `BUG_LEAVE_001` (Confirmed Defect). |
 | **Rapid Double Click**| Double clicked "Save" on Add Employee form rapidly. | Save button was disabled after first click, preventing duplicate records. | **Positive Observation:** System handles duplicate submit gracefully. |
 
 ---
@@ -148,5 +148,5 @@ Whenever code changes occur (such as bug fixes or updates), regression testing v
 - **Passed:** Pending execution
 - **Failed:** Pending execution
 - **Blocked:** 0
-- **Total Defects Identified / Simulated:** 6
+- **Defect/Issue Records Logged:** 6 (2 Confirmed Defects, 3 Exploratory Findings, 1 Simulated Defect)
 - **Pass Percentage:** Pending manual execution run

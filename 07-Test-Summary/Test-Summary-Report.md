@@ -39,7 +39,7 @@ A comprehensive test suite of **56 manual test cases** was engineered based on 2
 | **Smoke Test Cases** | 10 | 10 | Identified & prioritized |
 | **Regression Test Cases** | 14 | 14 | Mapped for change verification |
 | **Test Cases Executed** | 56 | Pending Execution | Awaiting candidate live execution runs |
-| **Defects Identified / Logged** | 6 | 6 | Logged in `Bug-Reports.xlsx` |
+| **Defect/Issue Records Logged** | 6 | 6 Records | 2 Confirmed, 3 Exploratory Findings, 1 Simulated |
 | **Defect Severity Distribution** | - | 0 Critical, 0 High, 2 Med, 4 Low | Realistic distribution |
 | **Defect Status** | - | 5 Open, 1 Closed (Simulated Retest) | Full lifecycle documented |
 
@@ -92,7 +92,7 @@ Manual UI inspection was conducted across all four modules:
 
 Manual compatibility validation was performed on two primary modern desktop browsers:
 
-| Feature / Module | Google Chrome (v128+) | Microsoft Edge (v128+) | Compatibility Status |
+| Feature / Module | Google Chrome | Microsoft Edge | Compatibility Status |
 | :--- | :---: | :---: | :---: |
 | **Login & Dashboard Loading** | Compatible | Compatible | Pass |
 | **PIM Employee Addition & Photo Upload** | Compatible | Compatible | Pass |

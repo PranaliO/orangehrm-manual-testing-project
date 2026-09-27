@@ -2,7 +2,7 @@
 
 **Project:** OrangeHRM – Manual Testing Project  
 **Author:** Pranali (QA Engineer Fresher)  
-**Total Defects Logged:** 6 (2 Confirmed Defects, 3 Potential / Exploratory Findings, 1 Simulated Defect)  
+**Total Defects Logged:** 6 (Confirmed Defects: 2, Exploratory Findings: 3, Simulated Defect: 1)  
 **Status Distribution:** 5 Open, 1 Closed (Simulated Retest)  
 
 ---
@@ -42,7 +42,7 @@
 
 ---
 ### [BUG_REC_001] Resume file upload accepts double extension files (e.g., 'resume.pdf.doc') without explicit MIME-type verification
-- **Classification:** `Potential Defect / Exploratory Finding`
+- **Classification:** `Exploratory Finding`
 - **Module:** Recruitment
 - **Environment:** Windows 11 / Chrome v128 / OrangeHRM 5.x Public Demo
 - **Preconditions:** User is on Recruitment > Add Candidate page.
@@ -59,7 +59,7 @@
 
 ---
 ### [BUG_LOGIN_001] Password input allows pasting plain text containing leading spaces without input sanitation warning
-- **Classification:** `Simulated Defect (Lifecycle Demo)`
+- **Classification:** `Simulated Defect`
 - **Module:** Login
 - **Environment:** Windows 11 / Microsoft Edge v128 / OrangeHRM 5.x Public Demo
 - **Preconditions:** User is on the login page.
@@ -76,7 +76,7 @@
 
 ---
 ### [BUG_EMP_002] Employee ID leading zeros stripped in data table view causing visual discrepancy with search input
-- **Classification:** `Potential Defect / Exploratory Finding`
+- **Classification:** `Exploratory Finding`
 - **Module:** Employee Management (PIM)
 - **Environment:** Windows 11 / Chrome v128 / OrangeHRM 5.x Public Demo
 - **Preconditions:** Add employee with custom ID '0089'.
@@ -93,7 +93,7 @@
 
 ---
 ### [BUG_REC_002] Candidate search by Vacancy does not reset results count text until full page reload
-- **Classification:** `Potential Defect / Exploratory Finding`
+- **Classification:** `Exploratory Finding`
 - **Module:** Recruitment
 - **Environment:** Windows 11 / Chrome v128 / OrangeHRM 5.x Public Demo
 - **Preconditions:** User has applied a search filter in Recruitment > Candidates.
